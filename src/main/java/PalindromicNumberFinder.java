@@ -13,21 +13,24 @@ public class PalindromicNumberFinder {
 
     // this method should find the next palindromic number
     public int searchForPalindromicNum(int num){
-
+        int init = num;
+        do num++; while (!testPalindromicNum(num));
+        return num - init;
     }
 
     // this is a helper method for searchForPalindromicNum. It's purpose is to test if a number is actually a palindrome
     public boolean testPalindromicNum(int num){
-
-
+        return new Integer(num).toString().equals(reverseNum(num));
     }
 
 
     // this is a helper method for testPalindromicNum. It should reverse the number and return it.
     public String reverseNum(int num){
-
-
-
+        String numString = new Integer(num).toString();
+        String reverseNumString = "";
+        for (int i = numString.length() - 1; i >= 0; i--)
+            reverseNumString += numString.charAt(i);
+        return reverseNumString;
     }
 
 
